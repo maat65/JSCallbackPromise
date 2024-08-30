@@ -1,0 +1,13 @@
+JavaScript Assíncrono
+
+Código assíncrono leva um tempo para ser executado, podendo ter sucesso ou não
+    - Chamadas para APIs
+    - Interações com banco de dados
+
+- CALLBACKS
+- PROMISES
+- PROMISES COM ASYNC/AWAIT
+
+
+
+A função "callback" é passa como uma função a outra função como ARGUMENTO

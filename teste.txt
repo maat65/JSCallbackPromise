@@ -1,0 +1,31 @@
+const loginUser = (email, password, onSuccess, onError) => {
+    setTimeout(() => {
+        const error = false;
+        if(error){
+            return onError(new Error("Deu erro!")); // caso a variável 'error' seja true
+        }
+
+        console.log("Logado")
+        onSuccess(email);
+    }, 1500);
+    console.log("Após setTimeout");
+}
+
+const getUserVideos = (email, callback) => {
+    setTimeout(() => {
+        callback(["video1, video2, video3"]);
+    }, 2000);
+}
+
+const user = loginUser("teste@gmail.com", "12345", (user) => {
+    getUserVideos(user.email, (videos) => {
+        console.log(user.email)
+        console.log(videos);
+    });
+}, (error) => {
+    console.log(error);
+})
+
+
+
+Declara user 
