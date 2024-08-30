@@ -13,7 +13,7 @@
 
 const loginUserPromise = (email, password) => {
     return new Promise((resolve, reject) => {
-        const error = false;
+        const error = true;
 
         if(error){
             reject(new Error("Erro no login!"))
@@ -42,11 +42,26 @@ const getVideosDetails = (video) => {
     })
 }
 
-loginUserPromise("teste@gmail.com", "123456")
-    .then((user) => getUserVideos(user.email))
-    .then((videos) => getVideosDetails(videos[0]))
-    .catch((error) => console.log(error))
+// loginUserPromise("teste@gmail.com", "123456")
+//     .then((user) => getUserVideos(user.email))
+//     .then((videos) => getVideosDetails(videos[0]))
+//     .catch((error) => console.log(error))
+
+const displayUser = async () => {
+    try {
+        const user = await loginUserPromise("teste@gmail.com", "123456");
+        const videos = await getUserVideos(user.email);
+        const videoDetails = await getVideosDetails(videos[0])
+
+        console.log(videoDetails);
+    } catch(error) {
+        console.log(error)
+    }
+} // ASYNC AWAIT 
+
+displayUser();
 
 // .then() rodará caso o codigo caia no resolve (resolve)
 // .catch() lida com o erro da Promise (reject)
 // Promise.all() executa mais de uma Promise por vez
+// AXIOS = consumo de resolve
